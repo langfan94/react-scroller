@@ -14,11 +14,12 @@ const Scroll = props => {
   const {
     datasets,
     durating,
+    bezierEasing = [0.000, 0.000, 0.580, 1.000],
   } = props;
   const datasMap = new Map();
   // 贝塞尔曲线
   // easy-out
-  const easing = BezierEasing(0.000, 0.000, 0.580, 1.000);
+  const easing = BezierEasing.apply(null, bezierEasing);
 
   useEffect(() => {
     let initStamp = 0;

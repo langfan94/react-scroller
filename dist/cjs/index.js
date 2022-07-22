@@ -149,11 +149,16 @@ var requestAnimationFrame = (window === null || window === void 0 ? void 0 : win
 var cancelAnimationFrame = (window === null || window === void 0 ? void 0 : window.cancelAnimationFrame) || (window === null || window === void 0 ? void 0 : window.mozCancelAnimationFrame);
 var Scroll = function(props) {
     var containRef = React.useRef();
-    var datasets = props.datasets, durating = props.durating;
+    var datasets = props.datasets, durating = props.durating, _bezierEasing = props.bezierEasing, bezierEasing = _bezierEasing === void 0 ? [
+        0.000,
+        0.000,
+        0.580,
+        1.000
+    ] : _bezierEasing;
     var datasMap = new Map();
     // 贝塞尔曲线
     // easy-out
-    var easing = src(0.000, 0.000, 0.580, 1.000);
+    var easing = src.apply(null, bezierEasing);
     React.useEffect(function() {
         var initStamp = 0;
         var totalOffset = datasets.slice(0, datasets.length - 1).reduce(function(previousValue, currentItem) {
