@@ -36,7 +36,10 @@ const Scroll = props => {
       const elapsed = (timestamp - initStamp);
       const move = easing(elapsed / durating) * totalOffset;
       const translateY = ~(move) + 1;
-      containRef.current.style.transform = `translateY(${translateY}px)`;
+      if (containRef.current) {
+        // @ts-ignore
+        containRef.current.style.transform = `translateY(${translateY}px)`;
+      }
 
       if (elapsed >= durating) {
         cancelAnimationFrame(frameId);
