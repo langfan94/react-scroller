@@ -173,7 +173,10 @@ var Scroll = function(props) {
             var elapsed = timestamp - initStamp;
             var move = easing(elapsed / durating) * totalOffset;
             var translateY = ~move + 1;
-            containRef.current.style.transform = "translateY(".concat(translateY, "px)");
+            if (containRef.current) {
+                // @ts-ignore
+                containRef.current.style.transform = "translateY(".concat(translateY, "px)");
+            }
             if (elapsed >= durating) {
                 cancelAnimationFrame(frameId);
             } else {
