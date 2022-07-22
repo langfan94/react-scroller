@@ -1,5 +1,5 @@
 {
-  "name": "react-scroll",
+  "name": "react-terse-scroll",
   "version": "1.0.0",
   "description": "",
   "main": "dist/cjs/index.js",
@@ -33,5 +33,9 @@
     "bezier-easing": "^2.1.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/langfan94/react-scroller"
   }
 }
